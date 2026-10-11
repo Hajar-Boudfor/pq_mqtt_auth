@@ -1,0 +1,12 @@
+services:
+  mosquitto-kem:
+    build: ./broker
+    container_name: mosquitto-kem
+    restart: unless-stopped
+    environment:
+      - LD_LIBRARY_PATH=/usr/local/lib
+    ports:
+      - "1883:1883"    
+    volumes:
+      - ./broker/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - ./keys:/mosquitto/keys:ro

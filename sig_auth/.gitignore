@@ -1,0 +1,16 @@
+*.key
+*_sk*.bin
+*sk_s*
+*.bak
+client/benchmark_sig.py
+client/benchmark_sig.csv
+__pycache__/
+*.pyc
+*.o
+*.so
+venv/
+
+.venv/
+
+client/Benchmark_sig.py
+

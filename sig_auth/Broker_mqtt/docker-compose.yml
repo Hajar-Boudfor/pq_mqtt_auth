@@ -1,0 +1,14 @@
+services:
+  mosquitto-sig:
+    build: .
+    container_name: mosquitto-sig
+    restart: unless-stopped
+    environment:
+      - LD_LIBRARY_PATH=/usr/local/lib
+    ports:
+      - "1884:1883"                  # client SIG → localhost:1884 (le KEM garde 1883)
+    volumes:
+      - ./config:/mosquitto/config
+      - ./data:/mosquitto/data
+      - ./logs:/mosquitto/log
+      - ./keys:/mosquitto/keys:ro    # Phase 0 : broker_sk_s.bin + broker_pk_s.bin
